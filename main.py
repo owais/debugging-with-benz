@@ -41,9 +41,16 @@ api.decorators = [
 ]
 
 
-def start_app():
-    app.run(host="0.0.0.0", port=5004, threaded=True)
+# def start_app():
+#     app.run(host="0.0.0.0", port=5004, threaded=True)
+#
+#
+# if __name__ == "__main__":
+#     start_app()
+
+@app.route('/')
+def hello_world():
+    return 'Hello Benz!'
 
 
-if __name__ == "__main__":
-    start_app()
+application = app
