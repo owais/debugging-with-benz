@@ -1,0 +1,1 @@
+`uwsgi --http-socket 0.0.0.0:9000 --wsgi-file main.py --callable app --master --strict --die-on-term --vacuum --need-app --harakiri 30 --no-orphans --processes 6 --threads 2 --lazy-apps --cpu-affinity 1 --buffer-size 30000`
