@@ -19,13 +19,8 @@ def add_routes(router):
 
 app = Flask(__name__)
 
-
-@uwsgidecorators.postfork
-def setup_tracing():
-    start_tracing()
-    # Instrument the Flask app instance explicitly
-    FlaskInstrumentor().instrument_app(app)
-
+start_tracing()
+FlaskInstrumentor().instrument_app(app)
 
 api = Api(app)
 api.decorators = [
