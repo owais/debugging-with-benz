@@ -1,15 +1,8 @@
-`uwsgi --http-socket 0.0.0.0:9000 --wsgi-file main.py --callable app --master --strict --die-on-term --vacuum --need-app --harakiri 30 --no-orphans --processes 6 --threads 2 --lazy-apps --cpu-affinity 1 --buffer-size 30000`
+Followed this example closely 
 
-Instead of the above
+https://github.com/signalfx/tracing-examples/tree/main/opentelemetry-tracing/opentelemetry-python-tracing/flask-and-uwsgi
 
-Use the below
-
-`uwsgi --http 127.0.0.1:5000 --wsgi-file main.py --callable app --master --processes 4 --enable-threads`
-
-
-# Jek Observation
-The main.py sent over didn't have a working route. It is essential to have a working route for testing.
-
+But couldn't work with this setup.
 
 # My setup
 
@@ -69,7 +62,7 @@ The main.py sent over didn't have a working route. It is essential to have a wor
 17. Add `pip install flask-restful`
 
 
-18. Run the flask app with uwsgi using `uwsgi --http 127.0.0.1:5000 --wsgi-file app.py --callable app --master --processes 4 --enable-threads`
+18. Run the flask app with uwsgi using start_server.sh
 
 
 19. Invoke request via http://127.0.0.1:5000/
@@ -78,7 +71,4 @@ The main.py sent over didn't have a working route. It is essential to have a wor
 20. Deactivate the virtual environment `deactivate`
 
 
-# Misc
 
-
-Proof: ![proof](proof.png "working proof")
